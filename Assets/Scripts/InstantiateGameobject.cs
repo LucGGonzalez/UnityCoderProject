@@ -15,7 +15,13 @@ public class InstantiateGameobject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      //si se detecta la presion de la tecla espacio se instancia una copia del gameobject(sin limite:pueden ser mil)
+    BulletInstantiate();
+    }
+   
+   
+    void BulletInstantiate()
+    {
+        //si se detecta la presion de la tecla espacio se instancia una copia del gameobject(sin limite:pueden ser mil)
       if(Input.GetKeyDown(KeyCode.Space))
       {
         //la instanciacion se hace en la posicion del objeto que tiene este script(SpawnBullet) y en su misma rotacion
