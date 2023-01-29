@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float vida=100,velocidad=5;
-    private Vector3 direccion= Vector3.forward;
+    public float life=100,vel=5;
+    private Vector3 direction= Vector3.forward;
     
     // Start is called before the first frame update
     void Start()
     {
-        RaiseVida();
-        DamageVida();
+        RaiseLife();
+        DamageLife();
     }
 
     // Update is called once per frame
@@ -24,23 +24,23 @@ public class PlayerController : MonoBehaviour
    
     void MovePlayer()
     {
-     transform.Translate(direccion*velocidad*Time.deltaTime);
+     transform.Translate(direction*vel*Time.deltaTime);
       
     }
-    void DamageVida()
+    void DamageLife()
     {
         if(transform.position.z >50)
      {
-        vida= vida--;
-        Debug.Log("Te han hecho Daño-- Vida="+vida);
+        life= life--;
+        Debug.Log("Te han hecho Daño-- Vida="+life);
      } 
     }
-    void RaiseVida()
+    void RaiseLife()
     {
            if(transform.position.z >150)
      {
-        vida= vida++;
-        Debug.Log("Te han curado-- Vida="+vida);
+        life= life++;
+        Debug.Log("Te han curado-- Vida="+life);
      } 
     }
 }
