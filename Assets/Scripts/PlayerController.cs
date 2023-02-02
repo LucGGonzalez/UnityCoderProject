@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float life=100,vel=5;
-    private Vector3 direction= Vector3.forward;
+    public float life=100,vel=5,horizontal,vertical;
+    public Vector3 movePlayer;
     
     // Start is called before the first frame update
     void Start()
@@ -24,9 +24,11 @@ public class PlayerController : MonoBehaviour
    
     void MovePlayer()
     {
-     transform.Translate(direction*vel*Time.deltaTime);
-      
-    }
+     horizontal= Input.GetAxis("Horizontal");
+     vertical= Input.GetAxis("Vertical");
+     
+    transform.Translate(horizontal*vel*Time.deltaTime,0,vertical*vel*Time.deltaTime);
+     }
     void DamageLife()
     {
         if(transform.position.z >50)

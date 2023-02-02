@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectToInstantiate: {fileID: 6349555069849670151, guid: d83e7eb31ccf04b45b32b9c08bc42df8, type: 3}
   temporizador: 5
+  tiempoFaltante: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,8 +340,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.19736548, y: 0.7782278, z: -0.2972082, w: -0.51679367}
-  m_LocalPosition: {x: 5.0900145, y: 5.2651286, z: 6.8711395}
+  m_LocalRotation: {x: -0.27271447, y: 0.025104823, z: -0.0071188104, w: -0.9617411}
+  m_LocalPosition: {x: 0.14928754, y: 4.326291, z: -3.4873378}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -478,7 +479,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
-  vel: 5
+  vel: 1
+  horizontal: 0
+  vertical: 0
+  movePlayer: {x: 0, y: 0, z: 0}
 --- !u!136 &1514921787
 CapsuleCollider:
   m_ObjectHideFlags: 0
