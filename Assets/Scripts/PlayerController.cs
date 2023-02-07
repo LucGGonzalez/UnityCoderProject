@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float life=100,vel=5,horizontal,vertical;
-    public Vector3 movePlayer;
+    public float life=100,vel=10,horizontal,vertical,velRotacion=5;
+    public Camera main;
+    public Camera Camara1;
+    public Camera Camara2;
+    public AudioSource emisor;
+
+   
+  
     
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        emisor=GetComponent<AudioSource>();
+        main.enabled=true;
+        Camara1.enabled=false;
+        Camara2.enabled=false;
         RaiseLife();
         DamageLife();
+        
+        
+        
     }
 
     // Update is called once per frame
@@ -19,15 +32,48 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         
+        CambiarCamara();
+        
     }
    
-   
+    void CambiarCamara()
+    {
+        if(Input.GetKey(KeyCode.Z))
+        {
+           Camara1.enabled=true;
+           Camara2.enabled=false;
+           main.enabled=false;
+           
+           }
+            if(Input.GetKey(KeyCode.X))
+            {
+                Camara1.enabled=false;
+                Camara2.enabled=true;
+                main.enabled=false; 
+            }
+            if(Input.GetKey(KeyCode.C))
+            {
+               Camara1.enabled=false;
+                Camara2.enabled=false;
+                main.enabled=true;  
+            }
+            
+        
+    }
     void MovePlayer()
     {
      horizontal= Input.GetAxis("Horizontal");
      vertical= Input.GetAxis("Vertical");
      
-    transform.Translate(horizontal*vel*Time.deltaTime,0,vertical*vel*Time.deltaTime);
+    transform.Translate(0,0,vertical*vel*Time.deltaTime);
+    transform.Rotate(0,horizontal*velRotacion*Time.deltaTime,0);
+    
+    if(Input.GetButtonDown("Vertical"))
+        {emisor.Play();}  
+    if(Input.GetButtonUp("Vertical"))
+        {emisor.Stop();} 
+    
+    
      }
     void DamageLife()
     {
@@ -45,4 +91,5 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Te han curado-- Vida="+life);
      } 
     }
+    
 }
