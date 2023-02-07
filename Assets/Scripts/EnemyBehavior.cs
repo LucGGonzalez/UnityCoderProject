@@ -51,7 +51,7 @@ private void AccionEnemiga(Estado accion)
     private void SeguirJugador()
     {   if (Vector3.Distance(jugador.transform.position,transform.position)>2)
     {
-       transform.position= Vector3.MoveTowards(transform.position,jugador.transform.position,1f*Time.deltaTime);
+       transform.position= Vector3.Lerp(transform.position,jugador.transform.position,1f*Time.deltaTime);
        
        }else
        {
