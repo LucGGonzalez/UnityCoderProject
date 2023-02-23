@@ -18,6 +18,11 @@ public class Pruebacontroller : MonoBehaviour
     //variables para asignar fuerza de motor y angulo de manejo
     public float torqueMaxMotor;
     public float anguloMaxManejo;
+    float radiorueda= 1f;// radio de la rueda
+    int rpmRueda=200; // rpm de la rueda
+    float circunFerencia; //circunferencia de la rueda
+    float velocidadkmh; // velocidad en km por hora
+         
          
     // Funcion para aplicar la posicion del wheel collider a las ruedas
     public void CambiarPosicionRuedas(WheelCollider collider)
@@ -68,6 +73,12 @@ public class Pruebacontroller : MonoBehaviour
             CambiarPosicionRuedas(moveInfo.leftWheel);
             CambiarPosicionRuedas(moveInfo.rightWheel);
         } 
+        
+ 
+         circunFerencia = 2.0f * 3.14f * radiorueda; // Encontrar la circunferencia 2 Pi R
+         velocidadkmh = (circunFerencia * rpmRueda)*60; // calcular km por hora
+         Debug.Log("Kilometros por hora="+velocidadkmh);
+         
     }
 }
 
