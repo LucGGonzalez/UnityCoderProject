@@ -11,6 +11,8 @@ using UnityEngine;
     //variables para saber si las ruedas tienen fuerza y manejo
     public bool motor;
     public bool manejo;
+    public bool frenodeMano;
+    
     
 }
 public class Pruebacontroller : MonoBehaviour
@@ -26,6 +28,21 @@ public class Pruebacontroller : MonoBehaviour
     float velocidadkmh; // velocidad en km por hora
          
          
+    private void Frenar()
+    {  // float frenoMano=torqueMaxMotor;
+        
+       //   if(Input.GetButtonDown("Jump")&& mot)
+       //     {    fre=true;
+       //          lw.brakeTorque = frenoMano;
+       //          rw.brakeTorque = frenoMano;
+       //          Debug.Log("Pasamos al iF frenando!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                
+       ///     }
+        //   if(Input.GetButtonUp("Jump") && mot)
+        //        {
+        //        fre=false;
+       //         }
+    }
     public void ObtenerRpmKmh(WheelCollider collider)
     {
         rpmRueda=collider.rpm;
@@ -57,6 +74,11 @@ public class Pruebacontroller : MonoBehaviour
     {
       
     }
+    private void Update()
+    {   
+        Frenar();
+
+    }
          
     public void FixedUpdate()
     {   
@@ -65,8 +87,10 @@ public class Pruebacontroller : MonoBehaviour
         float motor = torqueMaxMotor * Input.GetAxis("Vertical");
         float manejo = anguloMaxManejo * Input.GetAxis("Horizontal");
         
+        
+        
        
-        //por cada par de elementos de moveinfo asigno si manejan o avanzan o las dos cosas 
+        //por cada  elemento de moveinfo asigno el comportamiento de las ruedas 
         foreach (MoveInfo moveInfo in moveInfos) {
             if (moveInfo.manejo) {
                
@@ -78,15 +102,16 @@ public class Pruebacontroller : MonoBehaviour
                 moveInfo.rightWheel.motorTorque = motor;
                   
             }
-            if(Input.GetKeyDown(KeyCode.Space))
-                     {
-                     float frenoMano=torqueMaxMotor;
-                     moveInfo.leftWheel.brakeTorque = frenoMano;
-                     moveInfo.rightWheel.brakeTorque = frenoMano;
-                     Debug.Log("Pasamos al iF!!!!!!!!");
-                    }
+          
+        
+       
+                     
+               
+       
             
-           
+             
+            
+             
           
             //cambio posicion y rotacion de las ruedas asignadas en moveInfo.
             CambiarPosicionRuedas(moveInfo.leftWheel);
