@@ -11,6 +11,7 @@ using UnityEngine;
     //variables para saber si las ruedas tienen fuerza y manejo
     public bool motor;
     public bool manejo;
+    
 }
 public class Pruebacontroller : MonoBehaviour
 {   // Lista para poder recorrer y asignarle los objetos o parametros que el usuario quiera poner desde el inspector
@@ -18,12 +19,21 @@ public class Pruebacontroller : MonoBehaviour
     //variables para asignar fuerza de motor y angulo de manejo
     public float torqueMaxMotor;
     public float anguloMaxManejo;
-    float radiorueda= 1f;// radio de la rueda
-    int rpmRueda=200; // rpm de la rueda
+    float radiorueda= 0.35f;// radio de la rueda
+    
+    float rpmRueda; // rpm de la rueda
     float circunFerencia; //circunferencia de la rueda
     float velocidadkmh; // velocidad en km por hora
          
          
+    public void ObtenerRpmKmh(WheelCollider collider)
+    {
+        rpmRueda=collider.rpm;
+        Debug.Log(rpmRueda);
+        circunFerencia = 2.0f * 3.14f * radiorueda; // Encontrar la circunferencia 2 Pi R
+        velocidadkmh = Mathf.Abs( (circunFerencia * rpmRueda)/60); // calcular km por hora
+        Debug.Log("Kilometros por hora="+velocidadkmh);
+    }
     // Funcion para aplicar la posicion del wheel collider a las ruedas
     public void CambiarPosicionRuedas(WheelCollider collider)
     {
@@ -50,9 +60,12 @@ public class Pruebacontroller : MonoBehaviour
          
     public void FixedUpdate()
     {   
+        
         //avanzo cuando 
         float motor = torqueMaxMotor * Input.GetAxis("Vertical");
         float manejo = anguloMaxManejo * Input.GetAxis("Horizontal");
+        
+       
         //por cada par de elementos de moveinfo asigno si manejan o avanzan o las dos cosas 
         foreach (MoveInfo moveInfo in moveInfos) {
             if (moveInfo.manejo) {
@@ -63,21 +76,27 @@ public class Pruebacontroller : MonoBehaviour
             if (moveInfo.motor) {
                 moveInfo.leftWheel.motorTorque = motor;
                 moveInfo.rightWheel.motorTorque = motor;
-                if(Input.GetKey(KeyCode.Space))
-                {
-                moveInfo.leftWheel.brakeTorque = motor;
-                moveInfo.rightWheel.brakeTorque = motor;
-                }
+                  
             }
+            if(Input.GetKeyDown(KeyCode.Space))
+                     {
+                     float frenoMano=torqueMaxMotor;
+                     moveInfo.leftWheel.brakeTorque = frenoMano;
+                     moveInfo.rightWheel.brakeTorque = frenoMano;
+                     Debug.Log("Pasamos al iF!!!!!!!!");
+                    }
+            
+           
+          
             //cambio posicion y rotacion de las ruedas asignadas en moveInfo.
             CambiarPosicionRuedas(moveInfo.leftWheel);
             CambiarPosicionRuedas(moveInfo.rightWheel);
+            ObtenerRpmKmh(moveInfo.leftWheel);
+            
         } 
         
  
-         circunFerencia = 2.0f * 3.14f * radiorueda; // Encontrar la circunferencia 2 Pi R
-         velocidadkmh = (circunFerencia * rpmRueda)*60; // calcular km por hora
-         Debug.Log("Kilometros por hora="+velocidadkmh);
+    
          
     }
 }
