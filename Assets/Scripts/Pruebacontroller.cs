@@ -35,7 +35,10 @@ public class Pruebacontroller : MonoBehaviour
     private float tiempoPartida;
     private float tiempoLLegada;
     public bool tempActivo;
-    private string Z;
+    private int soloparaswitch=2;
+    
+    
+    
        
          
   
@@ -45,6 +48,7 @@ public class Pruebacontroller : MonoBehaviour
         {
            Camara1.enabled=false;
            Camara2.enabled=true;
+           soloparaswitch=1;
            
            
            }
@@ -52,6 +56,17 @@ public class Pruebacontroller : MonoBehaviour
             {
                 Camara1.enabled=true;
                 Camara2.enabled=false;
+                soloparaswitch=2;
+                
+            }
+            switch (soloparaswitch)
+            {   
+                case 1:
+                Debug.Log("Camara1");
+                break;
+                case 2:
+                Debug.Log("Camara2");
+                break;
                 
             }
          
@@ -127,6 +142,7 @@ public class Pruebacontroller : MonoBehaviour
 
      private void Start()
     {   
+      
       tempActivo=false;
       tiempoPartida=0;
       tiempo.text=tiempoPartida.ToString("0000")+" Segundos";
@@ -167,7 +183,9 @@ public class Pruebacontroller : MonoBehaviour
         }
     }
     private void OnCollisionEnter(Collision other)
-     {
+     {      
+
+            
         
      }
 }

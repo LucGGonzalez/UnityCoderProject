@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ruedas
   - Llegada
+  - Pared
+  - Obstaculo
   layers:
   - Default
   - TransparentFX
