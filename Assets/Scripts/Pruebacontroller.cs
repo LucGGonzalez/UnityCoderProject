@@ -31,7 +31,12 @@ public class Pruebacontroller : MonoBehaviour
     float rpmRueda; // rpm de la rueda
     float circunFerencia; //circunferencia de la rueda
     float velocidadkmh; // velocidad en km por hora
-         
+     public TextMeshProUGUI tiempo;
+    private float tiempoPartida;
+    private float tiempoLLegada;
+    public bool tempActivo;
+    private string Z;
+       
          
   
      void CambiarCamara()
@@ -49,17 +54,17 @@ public class Pruebacontroller : MonoBehaviour
                 Camara2.enabled=false;
                 
             }
-           
+         
             
         
     }
     public void ObtenerRpmKmh(WheelCollider collider)
     {
         rpmRueda=collider.rpm;
-        Debug.Log(rpmRueda);
+        //Debug.Log(rpmRueda);
         circunFerencia = 2.0f * 3.14f * radiorueda; // Encontrar la circunferencia 2 Pi R
         velocidadkmh = Mathf.Abs( (circunFerencia * rpmRueda)/60); // calcular km por hora
-        Debug.Log("Kilometros por hora="+velocidadkmh);
+       // Debug.Log("Kilometros por hora="+velocidadkmh);
     }
     // Funcion para aplicar la posicion del wheel collider a las ruedas
     public void CambiarPosicionRuedas(WheelCollider collider)
@@ -110,17 +115,32 @@ public class Pruebacontroller : MonoBehaviour
         textoKmph.text= "Velocidad: "+ Mathf.Abs(velocidadkmh).ToString("000")+"Km por hora";
        
     }
+        void EmpezarTemporizador()
+        {
+        if(tempActivo)
+        {
+            tiempoPartida+=Time.deltaTime;
+            
+            tiempo.text=tiempoPartida.ToString("0000")+" Segundos";
+            }
+        }
 
      private void Start()
     {   
-      
+      tempActivo=false;
+      tiempoPartida=0;
+      tiempo.text=tiempoPartida.ToString("0000")+" Segundos";
       Camara1.enabled=true;
       Camara2.enabled=false;
       emisor=GetComponent<AudioSource>();
       InitTextoContador();
     }
     private void Update()
-    {   
+    {   if(tempActivo)
+        {
+            EmpezarTemporizador();
+        }  
+      
       CambiarCamara(); 
       InitTextoContador(); 
 
@@ -139,5 +159,16 @@ public class Pruebacontroller : MonoBehaviour
     
          
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Llegada"))
+        {
+          tempActivo=true;  
+        }
+    }
+    private void OnCollisionEnter(Collision other)
+     {
+        
+     }
 }
 
