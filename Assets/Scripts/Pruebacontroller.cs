@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 //Clase serializable para poder desde el inspector asignar la cantidad de ruedas derecha e izquierda y si tienen motor o doblan
     [System.Serializable]
@@ -17,6 +18,10 @@ using UnityEngine;
 }
 public class Pruebacontroller : MonoBehaviour
 {   // Lista para poder recorrer y asignarle los objetos o parametros que el usuario quiera poner desde el inspector
+    public TextMeshProUGUI textoKmph;
+    public AudioSource emisor;    
+    public Camera Camara1;
+    public Camera Camara2;
     public List<MoveInfo> moveInfos; 
     //variables para asignar fuerza de motor y angulo de manejo
     public float torqueMaxMotor;
@@ -28,20 +33,25 @@ public class Pruebacontroller : MonoBehaviour
     float velocidadkmh; // velocidad en km por hora
          
          
-    private void Frenar()
-    {  // float frenoMano=torqueMaxMotor;
-        
-       //   if(Input.GetButtonDown("Jump")&& mot)
-       //     {    fre=true;
-       //          lw.brakeTorque = frenoMano;
-       //          rw.brakeTorque = frenoMano;
-       //          Debug.Log("Pasamos al iF frenando!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+  
+     void CambiarCamara()
+    {
+        if(Input.GetKey(KeyCode.Z))
+        {
+           Camara1.enabled=false;
+           Camara2.enabled=true;
+           
+           
+           }
+            if(Input.GetKey(KeyCode.X))
+            {
+                Camara1.enabled=true;
+                Camara2.enabled=false;
                 
-       ///     }
-        //   if(Input.GetButtonUp("Jump") && mot)
-        //        {
-        //        fre=false;
-       //         }
+            }
+           
+            
+        
     }
     public void ObtenerRpmKmh(WheelCollider collider)
     {
@@ -69,28 +79,11 @@ public class Pruebacontroller : MonoBehaviour
         ruedas.transform.rotation = rotation;
         
     }
-
-     private void Start()
-    {
-      
-    }
-    private void Update()
-    {   
-        Frenar();
-
-    }
-         
-    public void FixedUpdate()
-    {   
-        
+     void MoveryDoblar(){
+        //por cada  elemento de moveinfo asigno el comportamiento de las ruedas
         //avanzo cuando 
         float motor = torqueMaxMotor * Input.GetAxis("Vertical");
         float manejo = anguloMaxManejo * Input.GetAxis("Horizontal");
-        
-        
-        
-       
-        //por cada  elemento de moveinfo asigno el comportamiento de las ruedas 
         foreach (MoveInfo moveInfo in moveInfos) {
             if (moveInfo.manejo) {
                
@@ -103,22 +96,44 @@ public class Pruebacontroller : MonoBehaviour
                   
             }
           
-        
-       
-                     
-               
-       
-            
-             
-            
-             
-          
+         
             //cambio posicion y rotacion de las ruedas asignadas en moveInfo.
             CambiarPosicionRuedas(moveInfo.leftWheel);
             CambiarPosicionRuedas(moveInfo.rightWheel);
             ObtenerRpmKmh(moveInfo.leftWheel);
             
         } 
+        }
+
+        void InitTextoContador()
+    {
+        textoKmph.text= "Velocidad: "+ Mathf.Abs(velocidadkmh).ToString("000")+"Km por hora";
+       
+    }
+
+     private void Start()
+    {   
+      
+      Camara1.enabled=true;
+      Camara2.enabled=false;
+      emisor=GetComponent<AudioSource>();
+      InitTextoContador();
+    }
+    private void Update()
+    {   
+      CambiarCamara(); 
+      InitTextoContador(); 
+
+    }
+         
+    public void FixedUpdate()
+    {   
+       MoveryDoblar(); 
+        
+        
+        
+        
+      
         
  
     
