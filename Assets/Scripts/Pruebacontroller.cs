@@ -36,6 +36,8 @@ public class Pruebacontroller : MonoBehaviour
     private float tiempoLLegada;
     public bool tempActivo;
     private int soloparaswitch=2;
+    public AudioClip acelera;
+    public AudioClip idle;
     
     
     
@@ -150,13 +152,27 @@ public class Pruebacontroller : MonoBehaviour
       Camara2.enabled=false;
       emisor=GetComponent<AudioSource>();
       InitTextoContador();
+      emisor.loop=true;
+      emisor.clip=idle;
+      emisor.Play();
     }
     private void Update()
     {   if(tempActivo)
         {
             EmpezarTemporizador();
         }  
-      
+      if(Input.GetKeyDown(KeyCode.W))
+      {
+        emisor.loop=true;
+        emisor.clip=acelera;
+        emisor.Play();
+      }
+      if(Input.GetKeyUp(KeyCode.W))
+      {
+        emisor.loop=true;
+      emisor.clip=idle;
+      emisor.Play();
+      }
       CambiarCamara(); 
       InitTextoContador(); 
 

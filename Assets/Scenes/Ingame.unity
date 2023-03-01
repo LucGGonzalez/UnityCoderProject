@@ -28915,6 +28915,8 @@ MonoBehaviour:
   anguloMaxManejo: 60
   tiempo: {fileID: 943026248}
   tempActivo: 0
+  acelera: {fileID: 8300000, guid: 92b51350a374b0145ba411bf6037d2af, type: 3}
+  idle: {fileID: 8300000, guid: c502041826854664683f9914f63427b0, type: 3}
 --- !u!82 &2086862407
 AudioSource:
   m_ObjectHideFlags: 0
