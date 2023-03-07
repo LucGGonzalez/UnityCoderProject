@@ -17,7 +17,8 @@ using TMPro;
     
 }
 public class Pruebacontroller : MonoBehaviour
-{   // Lista para poder recorrer y asignarle los objetos o parametros que el usuario quiera poner desde el inspector
+{   public List<GameObject> objetos;
+    // Lista para poder recorrer y asignarle los objetos o parametros que el usuario quiera poner desde el inspector
     public TextMeshProUGUI textoKmph;
     public AudioSource emisor;    
     public Camera Camara1;
@@ -38,7 +39,21 @@ public class Pruebacontroller : MonoBehaviour
     private int soloparaswitch=2;
     public AudioClip acelera;
     public AudioClip idle;
-    
+
+    void IterarObjeto()
+    {
+        for(int i=0 ;i< objetos.Count; i++)
+        {
+            Debug.Log(objetos[i].name);
+        }
+    }
+     void IterarObjetoAlReves()
+    {   if(Input.GetKeyDown(KeyCode.Return))
+        for(int i=objetos.Count-1 ;i>= 0; i--)
+        {   
+            Debug.Log(objetos[i].name);
+        }
+    }
     
     
        
@@ -155,6 +170,8 @@ public class Pruebacontroller : MonoBehaviour
       emisor.loop=true;
       emisor.clip=idle;
       emisor.Play();
+      IterarObjeto();
+      
     }
     private void Update()
     {   if(tempActivo)
@@ -175,6 +192,7 @@ public class Pruebacontroller : MonoBehaviour
       }
       CambiarCamara(); 
       InitTextoContador(); 
+      IterarObjetoAlReves();
 
     }
          
