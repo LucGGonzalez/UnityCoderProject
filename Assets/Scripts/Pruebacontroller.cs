@@ -13,9 +13,8 @@ using TMPro;
     public bool motor;
     public bool manejo;
     public bool frenodeMano;
-    
-    
 }
+
 public class Pruebacontroller : MonoBehaviour
 {   public List<GameObject> objetos;
     // Lista para poder recorrer y asignarle los objetos o parametros que el usuario quiera poner desde el inspector
@@ -55,10 +54,6 @@ public class Pruebacontroller : MonoBehaviour
         }
     }
     
-    
-       
-         
-  
      void CambiarCamara()
     {
         if(Input.GetKey(KeyCode.Z))
@@ -87,8 +82,6 @@ public class Pruebacontroller : MonoBehaviour
                 
             }
          
-            
-        
     }
     public void ObtenerRpmKmh(WheelCollider collider)
     {
@@ -100,9 +93,8 @@ public class Pruebacontroller : MonoBehaviour
     }
     // Funcion para aplicar la posicion del wheel collider a las ruedas
     public void CambiarPosicionRuedas(WheelCollider collider)
+    
     {
-       
-                                
         //inicializo la variable ruedas con el transform del collider
         Transform ruedas = collider.transform;
         
@@ -113,9 +105,9 @@ public class Pruebacontroller : MonoBehaviour
         collider.GetWorldPose(out position, out rotation);
         //Le asigno la posicion y rotacion devueltas por getworldpose a las ruedas 
         ruedas.transform.position = position;
-        ruedas.transform.rotation = rotation;
-        
+        ruedas.transform.rotation = rotation;  
     }
+     
      void MoveryDoblar(){
         //por cada  elemento de moveinfo asigno el comportamiento de las ruedas
         //avanzo cuando 
@@ -130,15 +122,12 @@ public class Pruebacontroller : MonoBehaviour
             if (moveInfo.motor) {
                 moveInfo.leftWheel.motorTorque = motor;
                 moveInfo.rightWheel.motorTorque = motor;
-                  
             }
           
-         
             //cambio posicion y rotacion de las ruedas asignadas en moveInfo.
             CambiarPosicionRuedas(moveInfo.leftWheel);
             CambiarPosicionRuedas(moveInfo.rightWheel);
             ObtenerRpmKmh(moveInfo.leftWheel);
-            
         } 
         }
 
@@ -199,16 +188,8 @@ public class Pruebacontroller : MonoBehaviour
     public void FixedUpdate()
     {   
        MoveryDoblar(); 
-        
-        
-        
-        
-      
-        
- 
-    
-         
     }
+
     private void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("Llegada"))
@@ -216,11 +197,10 @@ public class Pruebacontroller : MonoBehaviour
           tempActivo=true;  
         }
     }
+
     private void OnCollisionEnter(Collision other)
      {      
 
-            
-        
      }
 }
 
