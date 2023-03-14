@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8973585092813281343}
   - component: {fileID: 8973585092813281280}
   - component: {fileID: 8973585092813281281}
-  - component: {fileID: 8973585092813281341}
+  - component: {fileID: 2594997561468096710}
   m_Layer: 0
   m_Name: Wheel_Rear_Left
   m_TagString: Ruedas
@@ -204,7 +204,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!146 &8973585092813281341
+--- !u!146 &2594997561468096710
 WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,14 +212,14 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8973585092813281283}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.5
+  m_Radius: 0.37
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
-    targetPosition: 0.5
+    targetPosition: 0.78
   m_SuspensionDistance: 0
-  m_ForceAppPointDistance: 0.79
-  m_Mass: 50
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 8973585094379338547}
   - component: {fileID: 8973585094379338548}
   - component: {fileID: 8973585094379338549}
-  - component: {fileID: 8973585094379338545}
+  - component: {fileID: 3283297954251391230}
   m_Layer: 0
   m_Name: Wheel_Front_Left
   m_TagString: Ruedas
@@ -571,7 +571,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!146 &8973585094379338545
+--- !u!146 &3283297954251391230
 WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -579,14 +579,14 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8973585094379338551}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
-    targetPosition: 0.5
+    targetPosition: 0.91
   m_SuspensionDistance: 0
-  m_ForceAppPointDistance: 0.79
-  m_Mass: 50
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 8973585094390873169}
   - component: {fileID: 8973585094390873170}
   - component: {fileID: 8973585094390873171}
-  - component: {fileID: 8973585094390873167}
+  - component: {fileID: 1940098181186691910}
   m_Layer: 0
   m_Name: Wheel_Rear_Right
   m_TagString: Ruedas
@@ -722,7 +722,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!146 &8973585094390873167
+--- !u!146 &1940098181186691910
 WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -730,14 +730,14 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8973585094390873173}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.5
+  m_Radius: 0.37
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
-    targetPosition: 0.5
+    targetPosition: 0.78
   m_SuspensionDistance: 0
-  m_ForceAppPointDistance: 0.79
-  m_Mass: 50
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 8973585094428133546}
   - component: {fileID: 8973585094428133547}
   - component: {fileID: 8973585094428133548}
-  - component: {fileID: 8973585094428133544}
+  - component: {fileID: 5294818002507276032}
   m_Layer: 0
   m_Name: Wheel_Front_Right
   m_TagString: Ruedas
@@ -781,7 +781,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8973585094428133550}
   m_LocalRotation: {x: 0.0000018099951, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.89999974, y: 0.3448994, z: 1.4446214}
+  m_LocalPosition: {x: 0.89999974, y: 0.321, z: 1.4446214}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -873,7 +873,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!146 &8973585094428133544
+--- !u!146 &5294818002507276032
 WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -881,14 +881,14 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8973585094428133550}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
-    targetPosition: 0.5
+    targetPosition: 0.91
   m_SuspensionDistance: 0
-  m_ForceAppPointDistance: 0.79
-  m_Mass: 50
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -949,7 +949,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8973585094673662494}
   serializedVersion: 2
-  m_Mass: 500
+  m_Mass: 1500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -969,23 +969,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e3ce0b50dd2364db065e297fec8810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objetos: []
   textoKmph: {fileID: 0}
   emisor: {fileID: 0}
   Camara1: {fileID: 8973585094126367891}
   Camara2: {fileID: 0}
   moveInfos:
-  - leftWheel: {fileID: 8973585094379338545}
-    rightWheel: {fileID: 8973585094428133544}
+  - leftWheel: {fileID: 3283297954251391230}
+    rightWheel: {fileID: 5294818002507276032}
     motor: 1
     manejo: 1
     frenodeMano: 0
-  - leftWheel: {fileID: 8973585092813281341}
-    rightWheel: {fileID: 8973585094390873167}
+  - leftWheel: {fileID: 2594997561468096710}
+    rightWheel: {fileID: 1940098181186691910}
     motor: 1
     manejo: 0
     frenodeMano: 0
-  torqueMaxMotor: 600
-  anguloMaxManejo: 60
+  torqueMaxMotor: 10000
+  anguloMaxManejo: 40
   tiempo: {fileID: 0}
   tempActivo: 0
   acelera: {fileID: 8300000, guid: 92b51350a374b0145ba411bf6037d2af, type: 3}
