@@ -1715,6 +1715,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &93632918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8973585094673662494, guid: 5de57af2187c9fd46b17847b743b28da, type: 3}
+  m_PrefabInstance: {fileID: 8973585092725275743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &93945278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23711,6 +23716,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2531335129886433440, guid: 5a8f39913d8079645914b07628ae2049, type: 3}
   m_PrefabInstance: {fileID: 1620217228}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1610486876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4363222009804503274, guid: 0c6130f269f1e7a4d81dd3bcf99cbf67, type: 3}
+  m_PrefabInstance: {fileID: 4363222008678711882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1610486877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610486876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a886f166144c9440931906921dca947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 0
+  manejo: 0
+  direccion: {x: 0, y: 0, z: 0}
+  jugador: {fileID: 93632918}
 --- !u!1001 &1610817020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32907,7 +32933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8973585094673662494, guid: 5de57af2187c9fd46b17847b743b28da, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5de57af2187c9fd46b17847b743b28da, type: 3}
