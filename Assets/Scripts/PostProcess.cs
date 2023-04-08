@@ -5,12 +5,12 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class PostProcess : MonoBehaviour
 {
-    [SerializeField] private PostProcessVolume _postProvessVolume;
+    [SerializeField] private PostProcessVolume _postProcessVolume;
     private MotionBlur _motionBlur;
 
     private void Start()
     {
-        _postProvessVolume.profile.TryGetSettings(out _motionBlur);
+        _postProcessVolume.profile.TryGetSettings(out _motionBlur);
     }
 
     public void MotionBlurOnOff(bool value)

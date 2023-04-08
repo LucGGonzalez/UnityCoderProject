@@ -9636,7 +9636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb7b4139bf588d47922acbbbc3e2a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _postProvessVolume: {fileID: 585268283}
+  _postProcessVolume: {fileID: 585268283}
 --- !u!1001 &645196797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32814,7 +32814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3897686791333700033, guid: b8732a67087475b4d9482de261f8b417, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 70.37
+      value: 60.73
       objectReference: {fileID: 0}
     - target: {fileID: 3897686791333700033, guid: b8732a67087475b4d9482de261f8b417, type: 3}
       propertyPath: m_LocalRotation.w
