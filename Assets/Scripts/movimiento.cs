@@ -33,6 +33,7 @@ public class movimiento : MonoBehaviour
     public AudioClip idle;
     float velocidadR;
     public GameObject menuPrincipal;
+    
     [SerializeField]private bool pausaactiva;
 
     // Start is called before the first frame update
@@ -44,9 +45,6 @@ public class movimiento : MonoBehaviour
           emisor.loop=true;
           emisor.clip=idle;
           emisor.Play();
-       
-       giro=0f;
-       avanzo=0f;
         tempActivo=false;
       tiempoPartida=0;
       tiempo.text=tiempoPartida.ToString("0000")+" Segundos";
@@ -140,8 +138,18 @@ public class movimiento : MonoBehaviour
          }
          void GirarRueda(WheelCollider wheel)
          { 
-            float rotacion=25;
-            wheel.steerAngle=giro*rotacion;
+            float rotacionizq=25;
+            float rotacionder=25;
+        if(giro > 0)
+          { 
+            wheel1.steerAngle=giro*rotacionizq;
+            wheel2.steerAngle=giro*rotacionder+2;
+            
+          }
+        if(giro < 0)
+          {  wheel1.steerAngle=giro*rotacionizq-2;
+            wheel2.steerAngle=giro*rotacionder;
+          }  
             
          }
          void Girarmeshe(WheelCollider col, Transform trans)
