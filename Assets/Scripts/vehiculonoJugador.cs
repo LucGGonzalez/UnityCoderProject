@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class vehiculonoJugador : VehiculoJugador
 {
-    public GameObject jugador;
+    public Transform objetivo;
+    NavMeshAgent noJugador;
+    private void Awake()
+     {
+      noJugador=GetComponent<NavMeshAgent>();
+    }
     void Start()
     {
       PerseguirJugador();  
@@ -17,6 +23,6 @@ public class vehiculonoJugador : VehiculoJugador
     }
     public void PerseguirJugador()
     {
-        Debug.Log("Persiguiendo al jugador");
+       noJugador.destination=objetivo.position; 
     }
 }
