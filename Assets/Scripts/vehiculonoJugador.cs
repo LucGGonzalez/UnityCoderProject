@@ -3,26 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class vehiculonoJugador : VehiculoJugador
+public class vehiculonoJugador : MonoBehaviour
 {
-    public Transform objetivo;
-    NavMeshAgent noJugador;
+    public Transform[] objetivo=new Transform[3];
+    private int objetivoActual;
+  
+    
+    private NavMeshAgent noJugador;
     private void Awake()
      {
-      noJugador=GetComponent<NavMeshAgent>();
+     
+      
+
     }
     void Start()
     {
-      PerseguirJugador();  
+      noJugador=GetComponent<NavMeshAgent>();
+      objetivoActual=0;
+      noJugador.SetDestination(objetivo[objetivoActual].position);
+      Debug.Log(objetivo.Length);
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+      
+       PerseguirJugador();   
     }
     public void PerseguirJugador()
-    {
-       noJugador.destination=objetivo.position; 
-    }
+    
+    { Debug.Log(noJugador.remainingDistance);
+      Debug.Log(noJugador.stoppingDistance);
+     if (noJugador.remainingDistance < noJugador.stoppingDistance)
+     {
+      objetivoActual++;
+      Debug.Log(objetivo[objetivoActual]);
+      if(objetivoActual>=objetivo.Length)
+      {
+        objetivoActual=0;
+      }
+      noJugador.SetDestination(objetivo[objetivoActual].position);
+      
+     }
+     
+     }
+    
 }
