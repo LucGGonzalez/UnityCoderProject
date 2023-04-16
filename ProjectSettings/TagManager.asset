@@ -8,6 +8,7 @@ TagManager:
   - Llegada
   - Pared
   - Obstaculo
+  - NoJugador
   layers:
   - Default
   - TransparentFX

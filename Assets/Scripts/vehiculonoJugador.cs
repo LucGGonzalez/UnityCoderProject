@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class vehiculonoJugador : MonoBehaviour
 {
-    public Transform[] objetivo=new Transform[3];
+    public Transform[] objetivo=new Transform[15];
     private int objetivoActual;
   
     
@@ -38,7 +38,7 @@ public class vehiculonoJugador : MonoBehaviour
      if (noJugador.remainingDistance < noJugador.stoppingDistance)
      {
       objetivoActual++;
-      Debug.Log(objetivo[objetivoActual]);
+      //Debug.Log(objetivo[objetivoActual]);
       if(objetivoActual>=objetivo.Length)
       {
         objetivoActual=0;

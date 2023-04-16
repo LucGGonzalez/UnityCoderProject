@@ -33,6 +33,9 @@ public class movimiento : MonoBehaviour
     public AudioClip idle;
     float velocidadR;
     public GameObject menuPrincipal;
+    public GameObject ganaste;
+    public GameObject teGanaron;
+    public Collider llegada;
     
     [SerializeField]private bool pausaactiva;
 
@@ -45,7 +48,7 @@ public class movimiento : MonoBehaviour
           emisor.loop=true;
           emisor.clip=idle;
           emisor.Play();
-        tempActivo=false;
+        tempActivo=true;
       tiempoPartida=0;
       tiempo.text=tiempoPartida.ToString("0000")+" Segundos";
       Camara1.enabled=true;
@@ -81,6 +84,7 @@ public class movimiento : MonoBehaviour
       CambiarCamara(); 
       InitTextoContador(); 
       CambiarPausa();
+      
       
 
       
@@ -245,5 +249,12 @@ public class movimiento : MonoBehaviour
           emisor.loop=true;
           emisor.clip=idle;
           emisor.Play();
+        }
+        private void OntriggerEnter(Collider llegada) 
+        {
+         
+         
+          ganaste.SetActive(true);
+         
         }
 }
