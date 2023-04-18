@@ -13,6 +13,8 @@ public class movimiento : MonoBehaviour
     [SerializeField]
     private  WheelCollider wheel1,wheel2,wheel3,wheel4;
     [SerializeField]Transform rueda1,rueda2,rueda3,rueda4;
+    public Slider slider;
+    public float volumenActual;
     private float fuerzaFrenado=500f;
     private float actualFuerzaFrenado=0f;
     private float velocidad=500f;
@@ -33,8 +35,7 @@ public class movimiento : MonoBehaviour
     public AudioClip idle;
     float velocidadR;
     public GameObject menuPrincipal;
-    public GameObject ganaste;
-    public GameObject teGanaron;
+    
     public Collider llegada;
     
     [SerializeField]private bool pausaactiva;
@@ -53,6 +54,7 @@ public class movimiento : MonoBehaviour
       tiempo.text=tiempoPartida.ToString("0000")+" Segundos";
       Camara1.enabled=true;
       Camara2.enabled=false;
+      
       
       InitTextoContador();
       
@@ -84,6 +86,8 @@ public class movimiento : MonoBehaviour
       CambiarCamara(); 
       InitTextoContador(); 
       CambiarPausa();
+      volumenActual=slider.value;
+      Debug.Log(volumenActual);
       
       
 
@@ -250,11 +254,10 @@ public class movimiento : MonoBehaviour
           emisor.clip=idle;
           emisor.Play();
         }
-        private void OntriggerEnter(Collider llegada) 
-        {
-         
-         
-          ganaste.SetActive(true);
-         
-        }
+        
+      public void CambiarVolumen(float volumenActual)
+      {
+        emisor.volume=volumenActual;
+        Debug.Log(emisor.volume);
+      } 
 }

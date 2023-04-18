@@ -21,7 +21,7 @@ public class vehiculonoJugador : MonoBehaviour
       noJugador=GetComponent<NavMeshAgent>();
       objetivoActual=0;
       noJugador.SetDestination(objetivo[objetivoActual].position);
-      Debug.Log(objetivo.Length);
+      //Debug.Log(objetivo.Length);
       
     }
 
@@ -33,8 +33,8 @@ public class vehiculonoJugador : MonoBehaviour
     }
     public void PerseguirJugador()
     
-    { Debug.Log(noJugador.remainingDistance);
-      Debug.Log(noJugador.stoppingDistance);
+    { //Debug.Log(noJugador.remainingDistance);
+      //Debug.Log(noJugador.stoppingDistance);
      if (noJugador.remainingDistance < noJugador.stoppingDistance)
      {
       objetivoActual++;
